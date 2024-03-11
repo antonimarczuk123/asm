@@ -3,9 +3,9 @@ section .data
     len equ $-hello
     
 section .text
-    global _start
+    global main
     
-_start:
+main:
     
     ;write 'Hello, World!' to stdout
     mov rax, 1      ;syscall number for sys_write

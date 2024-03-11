@@ -1,0 +1,22 @@
+     1                                  section .data
+     2 00000000 48656C6C6F2C20576F-         hello db 'Hello, World!', 0 
+     2 00000009 726C642100         
+     3                                      len equ $-hello
+     4                                      
+     5                                  section .text
+     6                                      global main
+     7                                      
+     8                                  main:
+     9                                      
+    10                                      ;write 'Hello, World!' to stdout
+    11 00000000 B801000000                  mov rax, 1      ;syscall number for sys_write
+    12 00000005 BF01000000                  mov rdi, 1      ;file descriptor stdout
+    13 0000000A 48BE-                       mov rsi, hello  ;address of text to display
+    13 0000000C [0000000000000000] 
+    14 00000014 BA0E000000                  mov rdx, len    ;string length
+    15 00000019 0F05                        syscall
+    16                                      
+    17                                      ;exit the program
+    18 0000001B B83C000000                  mov rax, 60     ;syscall number for sys_exit
+    19 00000020 4831FF                      xor rdi, rdi    ;return code 0
+    20 00000023 0F05                        syscall
