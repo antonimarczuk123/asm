@@ -1,0 +1,36 @@
+     1                                  section .data
+     2 00000000 7B                      x1 db 123
+     3 00000001 D204                    x2 dw 1234
+     4 00000003 39300000                x3 dd 12345
+     5 00000007 40E2010000000000        x4 dq 123456
+     6 0000000F 1F85EB51B81E0940        x5 dq 3.14
+     7                                  
+     8                                  section .bss
+     9                                  
+    10                                  section .text
+    11                                  global main
+    12                                  
+    13                                  main:
+    14 00000000 55                          push rbp
+    15 00000001 4889E5                      mov rbp, rsp
+    16                                      
+    17 00000004 48C7C0FFFFFFFF              mov rax, -1
+    18 0000000B 8A0425[00000000]            mov al, byte [x1]
+    19 00000012 4831C0                      xor rax, rax
+    20 00000015 8A0425[00000000]            mov al, byte [x1]
+    21                                      
+    22 0000001C 48C7C0FFFFFFFF              mov rax, -1
+    23 00000023 668B0425[01000000]          mov ax, word [x2]
+    24 0000002B 4831C0                      xor rax, rax
+    25 0000002E 668B0425[01000000]          mov ax, word [x2]
+    26                                      
+    27 00000036 48C7C0FFFFFFFF              mov rax, -1
+    28 0000003D 488B0425[07000000]          mov rax, qword [x4]
+    29                                      
+    30 00000045 F20F100425-                 movsd xmm0, [x5]
+    30 0000004A [0F000000]         
+    31                                      
+    32 0000004E 4889EC                      mov rsp, rbp
+    33 00000051 5D                          pop rbp
+    34                                      
+    35 00000052 C3                          ret

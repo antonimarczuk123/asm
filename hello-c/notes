@@ -14,4 +14,11 @@ gcc hello.c
 readelf -a hello.out
 
 # objdump
-objdump -M intel -d hello.o
+objdump -M intel -d hello.o > hello-objdump-o
+objdump -M intel -D hello.o > hello-objdump-MD-o
+
+objdump -M intel -d hello.out > hello-objdump-out
+objdump -M intel -D hello.out > hello-objdump-MD-out
+
+# hd
+hd hello.out > hello-hd
