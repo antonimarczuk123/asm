@@ -1,0 +1,17 @@
+# preprocessing
+gcc -E -P hello.c
+
+# c -> s (asm)
+gcc -S -masm=intel hello.c
+
+# c -> o (elf)
+gcc -c hello.c
+
+# c -> out (elf exe)
+gcc hello.c
+
+# readelf
+readelf -a hello.out
+
+# objdump
+objdump -M intel -d hello.o
