@@ -1,5 +1,5 @@
 section .data
-    hello db 'Hello, World!', 0 
+    hello db 'Hello, World!', 10, 0 
     len equ $-hello
     
 section .text
