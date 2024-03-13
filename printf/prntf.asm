@@ -3,7 +3,7 @@ extern printf
 %macro prntf 2
     section .data
     %%msg   db  %1, 0
-    %%fmt   db  "%s %ld"
+    %%fmt   db  "%s %ld",10,0
     
     section .text
     mov     rdi,    %%fmt

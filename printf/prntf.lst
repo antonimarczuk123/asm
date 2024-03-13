@@ -3,7 +3,7 @@
      3                                  %macro prntf 2
      4                                      section .data
      5                                      %%msg   db  %1, 0
-     6                                      %%fmt   db  "%s %ld"
+     6                                      %%fmt   db  "%s %ld",10,0
      7                                      
      8                                      section .text
      9                                      mov     rdi,    %%fmt
@@ -28,7 +28,7 @@
      4                              <1>  section .data
      5 00000008 48656C6C6F20576F72- <1>  %%msg db %1, 0
      5 00000011 6C642100            <1>
-     6 00000015 257320256C64        <1>  %%fmt db "%s %ld"
+     6 00000015 257320256C640A00    <1>  %%fmt db "%s %ld",10,0
      7                              <1> 
      8                              <1>  section .text
      9 00000004 48BF-               <1>  mov rdi, %%fmt
