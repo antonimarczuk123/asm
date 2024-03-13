@@ -18,3 +18,5 @@ main:
     mov rax, 60     ;syscall number for sys_exit
     xor rdi, rdi    ;return code 0
     syscall
+
+    ret
