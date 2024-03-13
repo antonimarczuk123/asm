@@ -20,3 +20,5 @@
     18 0000001B B83C000000                  mov rax, 60     ;syscall number for sys_exit
     19 00000020 4831FF                      xor rdi, rdi    ;return code 0
     20 00000023 0F05                        syscall
+    21                                  
+    22 00000025 C3                          ret
